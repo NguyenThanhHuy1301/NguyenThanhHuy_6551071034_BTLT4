@@ -1,0 +1,147 @@
+@{
+    ViewData["Title"] = "Manage Lists";
+}
+
+<div class="row">
+    <div class="col-md-12">
+        <h2>Quản lý danh sách sinh viên (ListBox)</h2>
+        <form id="frm" onsubmit="addStudent(); return false;">
+            <div class="mb-3 row">
+                <label class="col-sm-1 col-form-label">Tên SV:</label>
+                <div class="col-sm-5">
+                    <input id="txtTen" class="form-control" />
+                </div>
+                <div class="col-sm-2">
+                    <button type="submit" class="btn btn-primary">Cập Nhật</button>
+                </div>
+                <div class="col-sm-4">
+                    <select id="cmbLop" class="form-select">
+                        <option value="A">Lớp A</option>
+                        <option value="B">Lớp B</option>
+                    </select>
+                </div>
+            </div>
+        </form>
+
+        <div class="row">
+            <div class="col-md-5 text-center">
+                <label>Lớp A</label>
+                <select id="lstLopA" multiple size="10" class="form-select" style="height:260px;"></select>
+            </div>
+            <div class="col-md-2 d-flex flex-column align-items-center justify-content-center">
+                <button class="btn btn-secondary mb-2" onclick="moveSelected('lstLopA','lstLopB')">&gt;</button>
+                <button class="btn btn-secondary mb-2" onclick="moveAll('lstLopA','lstLopB')">&gt;&gt;</button>
+                <button class="btn btn-secondary mb-2" onclick="moveSelected('lstLopB','lstLopA')">&lt;</button>
+                <button class="btn btn-secondary mb-2" onclick="moveAll('lstLopB','lstLopA')">&lt;&lt;</button>
+            </div>
+            <div class="col-md-5 text-center">
+                <label>Lớp B</label>
+                <select id="lstLopB" multiple size="10" class="form-select" style="height:260px;"></select>
+            </div>
+        </div>
+
+        <div class="row mt-3">
+            <div class="col-md-4">
+                <button class="btn btn-danger" onclick="deleteSelected('lstLopA')">Xóa Lớp A</button>
+            </div>
+            <div class="col-md-4 text-center">
+                <a class="btn btn-outline-secondary" href="@Url.Action("Index","Home")">Kết Thúc</a>
+            </div>
+            <div class="col-md-4 text-end">
+                <button class="btn btn-danger" onclick="deleteSelected('lstLopB')">Xóa Lớp B</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        // Add student to selected class (A or B)
+        function addStudent() {
+            var txt = document.getElementById('txtTen');
+            var cmb = document.getElementById('cmbLop');
+            var val = txt.value.trim();
+            if (val === '') {
+                alert('Bạn ko được phép nhập dữ liệu rỗng!');
+                txt.focus();
+                return;
+            }
+            var target = (cmb.value === 'A') ? document.getElementById('lstLopA') : document.getElementById('lstLopB');
+            var opt = document.createElement('option');
+            opt.text = val;
+            target.add(opt);
+            txt.value = '';
+            txt.focus();
+        }
+
+        // Move selected items from lst1 to lst2
+        function moveSelected(idFrom, idTo) {
+            var from = document.getElementById(idFrom);
+            var to = document.getElementById(idTo);
+            if (from.options.length === 0) {
+                alert('Danh sách hiện đang rỗng!');
+                return;
+            }
+            var anySelected = Array.from(from.options).some(o => o.selected);
+            if (!anySelected) {
+                alert('Hãy chọn mục trước khi chuyển.');
+                return;
+            }
+            if (!confirm('Bạn có chắc chuyển những dữ liệu đang chọn ko?')) return;
+
+            var i = 0;
+            while (i < from.options.length) {
+                if (from.options[i].selected) {
+                    var text = from.options[i].text;
+                    var newOpt = document.createElement('option');
+                    newOpt.text = text;
+                    to.add(newOpt);
+                    from.remove(i);
+                } else {
+                    i++;
+                }
+            }
+        }
+
+        // Move all items from lst1 to lst2
+        function moveAll(idFrom, idTo) {
+            var from = document.getElementById(idFrom);
+            var to = document.getElementById(idTo);
+            if (from.options.length === 0) {
+                alert('Danh sách hiện đang rỗng!');
+                return;
+            }
+            if (!confirm('Bạn có chắc chuyển toàn bộ dữ liệu ko?')) return;
+            while (from.options.length > 0) {
+                var text = from.options[0].text;
+                var newOpt = document.createElement('option');
+                newOpt.text = text;
+                to.add(newOpt);
+                from.remove(0);
+            }
+        }
+
+        // Delete selected items in a list
+        function deleteSelected(idList) {
+            var lst = document.getElementById(idList);
+            if (lst.options.length === 0) {
+                alert('Hiện danh sách đang rỗng!');
+                return;
+            }
+            var anySelected = Array.from(lst.options).some(o => o.selected);
+            if (!anySelected) {
+                alert('Hãy chọn mục trước khi xóa.');
+                return;
+            }
+            if (!confirm('Bạn có chắc xóa những phần tử này?')) return;
+            var i = 0;
+            while (i < lst.options.length) {
+                if (lst.options[i].selected) {
+                    lst.remove(i);
+                } else {
+                    i++;
+                }
+            }
+        }
+    </script>
+}
