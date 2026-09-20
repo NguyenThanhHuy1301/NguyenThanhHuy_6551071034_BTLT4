@@ -1,0 +1,200 @@
+﻿namespace Bai14
+{
+    partial class Form1
+    {
+        /// <summary>
+        ///  Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        ///  Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            txtTen = new TextBox();
+            lblTen = new Label();
+            btnCapNhat = new Button();
+            lstLopA = new ListBox();
+            lstLopB = new ListBox();
+            btnRight = new Button();
+            btnLeft = new Button();
+            btnAllRight = new Button();
+            btnAllLeft = new Button();
+            btnXoaA = new Button();
+            btnXoaB = new Button();
+            btnKetThuc = new Button();
+            SuspendLayout();
+            // 
+            // txtTen
+            // 
+            txtTen.Location = new Point(110, 14);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(420, 27);
+            txtTen.TabIndex = 1;
+            // 
+            // lblTen
+            // 
+            lblTen.AutoSize = true;
+            lblTen.Location = new Point(12, 17);
+            lblTen.Name = "lblTen";
+            lblTen.Size = new Size(56, 20);
+            lblTen.TabIndex = 13;
+            lblTen.Text = "Tên SV:";
+            // 
+            // btnCapNhat
+            // 
+            btnCapNhat.Location = new Point(540, 12);
+            btnCapNhat.Name = "btnCapNhat";
+            btnCapNhat.Size = new Size(100, 26);
+            btnCapNhat.TabIndex = 2;
+            btnCapNhat.Text = "Cập Nhật";
+            btnCapNhat.UseVisualStyleBackColor = true;
+            btnCapNhat.Click += btnCapNhat_Click;
+            // 
+            // lstLopA
+            // 
+            lstLopA.FormattingEnabled = true;
+            lstLopA.Location = new Point(25, 80);
+            lstLopA.Name = "lstLopA";
+            lstLopA.SelectionMode = SelectionMode.MultiExtended;
+            lstLopA.Size = new Size(260, 244);
+            lstLopA.TabIndex = 3;
+            // 
+            // lstLopB
+            // 
+            lstLopB.FormattingEnabled = true;
+            lstLopB.Location = new Point(446, 80);
+            lstLopB.Name = "lstLopB";
+            lstLopB.SelectionMode = SelectionMode.MultiExtended;
+            lstLopB.Size = new Size(260, 244);
+            lstLopB.TabIndex = 4;
+            // 
+            // btnRight
+            // 
+            btnRight.Location = new Point(300, 100);
+            btnRight.Name = "btnRight";
+            btnRight.Size = new Size(80, 30);
+            btnRight.TabIndex = 5;
+            btnRight.Text = ">";
+            btnRight.UseVisualStyleBackColor = true;
+            btnRight.Click += btnRight_Click;
+            // 
+            // btnLeft
+            // 
+            btnLeft.Location = new Point(300, 180);
+            btnLeft.Name = "btnLeft";
+            btnLeft.Size = new Size(80, 30);
+            btnLeft.TabIndex = 7;
+            btnLeft.Text = "<";
+            btnLeft.UseVisualStyleBackColor = true;
+            btnLeft.Click += btnLeft_Click;
+            // 
+            // btnAllRight
+            // 
+            btnAllRight.Location = new Point(300, 140);
+            btnAllRight.Name = "btnAllRight";
+            btnAllRight.Size = new Size(80, 30);
+            btnAllRight.TabIndex = 6;
+            btnAllRight.Text = ">>";
+            btnAllRight.UseVisualStyleBackColor = true;
+            btnAllRight.Click += btnAllRight_Click;
+            // 
+            // btnAllLeft
+            // 
+            btnAllLeft.Location = new Point(300, 220);
+            btnAllLeft.Name = "btnAllLeft";
+            btnAllLeft.Size = new Size(80, 30);
+            btnAllLeft.TabIndex = 8;
+            btnAllLeft.Text = "<<";
+            btnAllLeft.UseVisualStyleBackColor = true;
+            btnAllLeft.Click += btnAllLeft_Click;
+            // 
+            // btnXoaA
+            // 
+            btnXoaA.Location = new Point(12, 330);
+            btnXoaA.Name = "btnXoaA";
+            btnXoaA.Size = new Size(120, 30);
+            btnXoaA.TabIndex = 9;
+            btnXoaA.Text = "Xóa Lớp A";
+            btnXoaA.UseVisualStyleBackColor = true;
+            btnXoaA.Click += btnXoaA_Click;
+            // 
+            // btnXoaB
+            // 
+            btnXoaB.Location = new Point(586, 330);
+            btnXoaB.Name = "btnXoaB";
+            btnXoaB.Size = new Size(120, 30);
+            btnXoaB.TabIndex = 11;
+            btnXoaB.Text = "Xóa Lớp B";
+            btnXoaB.UseVisualStyleBackColor = true;
+            btnXoaB.Click += btnXoaB_Click;
+            // 
+            // btnKetThuc
+            // 
+            btnKetThuc.Location = new Point(300, 330);
+            btnKetThuc.Name = "btnKetThuc";
+            btnKetThuc.Size = new Size(80, 30);
+            btnKetThuc.TabIndex = 10;
+            btnKetThuc.Text = "Kết Thúc";
+            btnKetThuc.UseVisualStyleBackColor = true;
+            btnKetThuc.Click += btnKetThuc_Click;
+            // 
+            // Form1
+            // 
+            AcceptButton = btnCapNhat;
+            ClientSize = new Size(720, 380);
+            Controls.Add(btnXoaB);
+            Controls.Add(btnKetThuc);
+            Controls.Add(btnXoaA);
+            Controls.Add(btnAllLeft);
+            Controls.Add(btnLeft);
+            Controls.Add(btnAllRight);
+            Controls.Add(btnRight);
+            Controls.Add(lstLopB);
+            Controls.Add(lstLopA);
+            Controls.Add(btnCapNhat);
+            Controls.Add(lblTen);
+            Controls.Add(txtTen);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            MaximizeBox = false;
+            Name = "Form1";
+            StartPosition = FormStartPosition.CenterScreen;
+            Text = "Form Cập Nhật 2 ListBox";
+            FormClosing += Form1_FormClosing;
+            ResumeLayout(false);
+            PerformLayout();
+        }
+
+        private System.Windows.Forms.TextBox txtTen;
+        private System.Windows.Forms.Label lblTen;
+        private System.Windows.Forms.Button btnCapNhat;
+        private System.Windows.Forms.ListBox lstLopA;
+        private System.Windows.Forms.ListBox lstLopB;
+        private System.Windows.Forms.Button btnRight;
+        private System.Windows.Forms.Button btnLeft;
+        private System.Windows.Forms.Button btnAllRight;
+        private System.Windows.Forms.Button btnAllLeft;
+        private System.Windows.Forms.Button btnXoaA;
+        private System.Windows.Forms.Button btnXoaB;
+        private System.Windows.Forms.Button btnKetThuc;
+
+        #endregion
+    }
+}
